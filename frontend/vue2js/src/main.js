@@ -2,8 +2,9 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+
+// use UI-Framework: element-ui
+import installElementUI from './plugins/element'
 
 // global configuration of HTTP-Request for axios
 const axios = require('axios')
@@ -12,8 +13,7 @@ axios.defaults.withCredentials = true
 Vue.prototype.$axios = axios
 
 Vue.config.productionTip = false
-
-Vue.use(ElementUI, { size: 'small' })
+installElementUI(Vue)
 
 new Vue({
   router,
