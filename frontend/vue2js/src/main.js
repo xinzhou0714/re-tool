@@ -3,17 +3,16 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
-// use UI-Framework: element-ui
+// import UI-Framework: element-ui
 import installElementUI from './plugins/element'
-
-// global configuration of HTTP-Request for axios
-const axios = require('axios')
-axios.defaults.baseURL = 'http://192.168.178.48:9090'
-axios.defaults.withCredentials = true
-Vue.prototype.$axios = axios
+// import http-client plugin axios
+import installAxios from './plugins/axios'
 
 Vue.config.productionTip = false
+
+// install customized plugins in dedicated js-file to make main.js more clean
 installElementUI(Vue)
+installAxios(Vue)
 
 new Vue({
   router,
